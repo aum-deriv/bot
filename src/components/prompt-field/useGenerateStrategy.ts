@@ -1,16 +1,5 @@
 import { useState } from 'react';
-
-declare global {
-    interface Window {
-        Blockly: {
-            Xml: {
-                textToDom(text: string): Element;
-                domToWorkspace(dom: Element, workspace: any): void;
-            };
-            derivWorkspace: any;
-        };
-    }
-}
+import { load } from '@/external/bot-skeleton';
 
 interface UseGenerateStrategyReturn {
     request: (prompt: string) => Promise<void>;
@@ -41,8 +30,15 @@ export const useGenerateStrategy = (): UseGenerateStrategyReturn => {
             }
 
             const { strategy } = await response.json();
-            const xml = window.Blockly.Xml.textToDom(strategy);
-            window.Blockly.Xml.domToWorkspace(xml, window.Blockly.derivWorkspace);
+            await load({
+                block_string: strategy,
+                file_name: `generated${new Date().getTime()}`,
+                workspace: window.Blockly.derivWorkspace,
+                from: null,
+                drop_event: null,
+                strategy_id: null,
+                showIncompatibleStrategyDialog: null,
+            });
             setResponse(strategy);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Failed to generate strategy');
