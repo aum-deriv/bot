@@ -1,5 +1,19 @@
-.prompt-field-wrapper {
-    max-width: 50%;
-    margin: 0.5rem;
-    margin-inline: 1rem;
+.prompt-field {
+    &-wrapper {
+        max-width: 50%;
+        margin: 0.5rem;
+        margin-inline: 1rem;
+    }
+
+    &__loader {
+        animation-name: loader-animation;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+    }
+}
+
+@keyframes loader-animation {
+    50% {
+        opacity: 0.3;
+    }
 }
