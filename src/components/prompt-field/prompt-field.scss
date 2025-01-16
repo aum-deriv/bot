@@ -6,14 +6,28 @@
     }
 
     &__loader {
+        height: 5.6rem;
         animation-name: loader-animation;
-        animation-duration: 1.5s;
+        animation-duration: 2s;
         animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        background: rgb(228 228 228);
+        background: linear-gradient(
+            90deg,
+            rgb(228 228 228 / 100%) 0%,
+            rgb(255 153 153 / 100%) 50%,
+            rgb(228 228 228 / 100%) 100%
+        );
+        background-size: 200% 100%;
     }
 }
 
 @keyframes loader-animation {
-    50% {
-        opacity: 0.3;
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
     }
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { InputGroupButton, SectionMessage, Spinner } from '@deriv-com/quill-ui';
+import { InputGroupButton, SectionMessage } from '@deriv-com/quill-ui';
 import { useGenerateStrategy } from './useGenerateStrategy';
 import './prompt-field.scss';
 
@@ -38,11 +38,15 @@ export const PromptField: React.FC = () => {
             ) : (
                 <SectionMessage
                     className='prompt-field__loader'
-                    icon={<Spinner />}
+                    icon={
+                        <img
+                            style={{ width: '20px', height: '20px' }}
+                            src='https://media.nngroup.com/media/editor/2024/09/16/figma_generate_sparkles_ai_icon.png'
+                        />
+                    }
                     linkList={null}
                     message='Generating strategy'
                     size='sm'
-                    status='info'
                     title=''
                 />
             )}
