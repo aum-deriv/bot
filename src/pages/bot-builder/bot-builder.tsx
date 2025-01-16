@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
 import { botNotification } from '@/components/bot-notification/bot-notification';
 import { notification_message } from '@/components/bot-notification/bot-notification-utils';
+import { PromptField } from '@/components/prompt-field/prompt-field';
 import { useStore } from '@/hooks/useStore';
 import { localize } from '@deriv-com/translations';
 import { useDevice } from '@deriv-com/ui';
@@ -114,6 +115,7 @@ const BotBuilder = observer(() => {
                     'bot-builder--tour-active': active_tour,
                 })}
             >
+                <PromptField />
                 <div id='scratch_div' ref={el_ref}>
                     <WorkspaceWrapper />
                 </div>
