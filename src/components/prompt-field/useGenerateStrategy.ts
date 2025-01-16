@@ -41,7 +41,9 @@ export const useGenerateStrategy = (): UseGenerateStrategyReturn => {
             });
             setResponse(strategy);
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Failed to generate strategy');
+            setError(
+                `Failed to generate strategy: ${err instanceof Error && err.message === 'Failed to fetch' ? 'unable to connect to server' : err.message}`
+            );
         } finally {
             setIsLoading(false);
         }

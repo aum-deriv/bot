@@ -5,12 +5,27 @@ import './prompt-field.scss';
 
 export const PromptField: React.FC = () => {
     const [inputValue, setInputValue] = useState('');
-    const { request, isLoading } = useGenerateStrategy();
+    const { request, isLoading, error } = useGenerateStrategy();
 
     const handleGenerate = async () => {
         if (!inputValue.trim()) return;
         await request(inputValue);
     };
+
+    if (error) {
+        return (
+            <div className='prompt-field-wrapper'>
+                <SectionMessage
+                    className='prompt-field__error'
+                    linkList={null}
+                    message={error}
+                    size='sm'
+                    status='danger'
+                    title=''
+                />
+            </div>
+        );
+    }
 
     return (
         <div className='prompt-field-wrapper'>

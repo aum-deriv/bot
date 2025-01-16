@@ -5,6 +5,10 @@
         margin-inline: 1rem;
     }
 
+    &__error {
+        height: 5.6rem;
+    }
+
     &__loader {
         height: 5.6rem;
         animation-name: loader-animation;
