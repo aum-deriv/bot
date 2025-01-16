@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { LegacyLiveChatOutlineIcon } from '@deriv/quill-icons';
 import { InputGroupButton } from '@deriv-com/quill-ui';
 import { useGenerateStrategy } from './useGenerateStrategy';
 import './prompt-field.scss';
@@ -20,7 +19,12 @@ export const PromptField: React.FC = () => {
                 button_position='right'
                 disabled={isLoading}
                 inputSize='md'
-                leftIcon={<LegacyLiveChatOutlineIcon fill='#000000' iconSize='xs' />}
+                leftIcon={
+                    <img
+                        style={{ width: '20px', height: '20px' }}
+                        src='https://media.nngroup.com/media/editor/2024/09/16/figma_generate_sparkles_ai_icon.png'
+                    />
+                }
                 message=''
                 placeholder='What parameters do you need for strategy?'
                 status='neutral'
